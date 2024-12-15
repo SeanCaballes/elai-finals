@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar box-shadow">
+        <h1 class="navgoods h3 display-6 text-dark"><a class="text-decoration-none text-white text-bold" href="templates/index.html">WELCOME</a></h1>
+    </div>
+    <div class="main-content">
+        <div class="intro">
+            <h1 class="h1-intro display-3 text-white">Hi, my name is Sean Q. Caballes</h1>
+        </div>
+        <img class="standing-photo" src="/static/me.png">
+    </div>
+    <div class="second-content">
+        <p class="about-me text-white">Aspiring IT professional with a passion for front-end
+            development, creating responsive user interfaces,
+            and delivering seamless user experiences. Focused
+            on improving skills in HTML, CSS, JavaScript, and
+            React, while learning new technologies. Excited to
+            work on innovative web projects and grow in the
+            tech industry.
+        </p>
+    </div>
+    <div class="text-center text-white display-3 p-5 mb-5">
+        <h3>My Curriculum Vitae/Resume</h3>
+    </div>
+    <div class="third-content d-flex">
+        <div class="flip-container" onclick="flipCard()">
+            <div class="flipper">
+                <img class="cv env-image" src="/static/env.png" alt="Environment Image">
+                <img class="cv curriculum-image" src="/static/CurriculumVitae-1.png" alt="Curriculum Vitae">
+            </div>
+        </div>
+        <div class="few-messages">
+            <h3 class="text-danger">Download or Print</h3>
+            <a href="/static/CurriculumVitae.pdf" download class="btn btn-none">
+                <i class="bi bi-file-arrow-down-fill text-dark contact-link"></i>
+            </a>
+            <button onclick="printCV()" class="btn btn-none">
+                <i class="bi bi-printer text-dark contact-link"></i>
+            </button>
+        </div>
+        <div class="contact-details text-end">
+            <h3 class="text-danger">Contact Details</h3>
+            <div>
+                <a class="d-flex text-primary text-decoration-none contact-link" href="https://www.facebook.com/profile.php?id=61569553080204">
+                    <i class="bi bi-facebook"></i>
+                    <h4>Sean Caballes</h4>
+                </a>  
+            </div>
+            <div>
+                <a class="d-flex text-white text-decoration-none contact-link" href="https://github.com/SeanCaballes">
+                    <i class="bi bi-github"></i>
+                    <h4>SeanCaballes</h4>
+                </a>   
+            </div>
+        </div>
+    </div>
+
+    <div id="chatbot-icon" class="chatbot-icon">
+        <button id="chatbot-toggle" class="btn btn-danger">
+            <i class="bi bi-robot text-dark"></i>
+        </button>
+    </div>
+
+    <div id="chatbot-popup" class="chatbot-popup" style="display: none;">
+        <div class="chatbot-header d-flex">
+            <h5>Chatbot</h5>
+        </div>
+        <div class="chatbot-body">
+            <div id="chatbot-messages" class="chatbot-messages"></div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="user-message" placeholder="Type your message here...">
+            <button id="send-message" class="btn btn-danger">Send</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/static/chatbot.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

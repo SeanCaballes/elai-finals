@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('/static/font/Poppins-Regular.ttf') format('truetype'),
+         url('/static/font/Poppins-Regular.woff2') format('woff2'); /* Add .woff2 if you have it */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/static/font/Poppins-Bold.ttf') format('truetype'),
+         url('/static/font/Poppins-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Apply Poppins font to the entire body */
+body {
+    background-color: #000;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* You can apply the font to specific elements as needed */
+h1, h2, h3, .navbar, .chatbot-header {
+    font-family: 'Poppins', sans-serif;
+}
+
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 50px;
+}
+.chatbot-icon i {
+    font-size: 30px;
+}
+
+
+/* Chatbot Popup */
+.chatbot-popup {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 400px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 3;
+}
+
+/* Header */
+.chatbot-header {
+    background-color: #8a0303;
+    color: #fff;
+    padding: 20px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border: 0px solid;
+    text-align: center;
+}
+
+/* Body */
+.chatbot-body {
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+/* Footer */
+.chatbot-footer {
+    padding: 10px;
+    display: flex;
+}
+
+#user-message {
+    width: 80%;
+    padding: 5px;
+}
+
+#send-message {
+    margin-left: auto;
+}
+
+.chatbot-messages {
+    margin-bottom: 10px;
+}
+
+.user-message {
+    background-color: #f1f1f1;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.bot-message {
+    background-color: #e1f7d5;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.navbar {
+    background-color: #8a0303;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 4px 6px #8a0303;
+    width: 100%;
+    z-index: 2;
+}
+
+.navgoods {
+    margin: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.main-content {
+    background: linear-gradient(to bottom, #8a0303, #8a0303, #000);
+    padding: 50px;
+    margin-top: 90px;
+    height: 90vh;
+}
+
+.standing-photo {
+    position: absolute;
+    right: 0;
+    top: 70px;
+}
+
+.h1-intro {
+    width: 60%;
+    text-indent: 130px;
+}
+
+.second-content {
+    background-color: #000;
+    padding: 50px;
+}
+
+.about-me {
+    position: absolute;
+    top: 400px;
+    justify-content: start;
+    text-align: justify ;
+    text-indent: 50px;
+    width: 50%;
+    margin-left: 80px;
+}
+
+.third-content {
+    padding: 50px;
+}
+
+.cv {
+    width: 400px;
+    height: auto;
+    border: 5px solid #8a0303;
+    border-radius: 25px;
+}
+
+/* Flip effect */
+.flip-container {
+    perspective: 1000px;
+    width: 400px;
+    height: auto;
+    cursor: pointer;
+}
+
+.flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.env-image,
+.curriculum-image {
+    backface-visibility: hidden;
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.curriculum-image {
+    transform: rotateY(180deg);
+}
+
+.flipper.flipped .env-image {
+    transform: rotateY(180deg);
+}
+
+.flipper.flipped .curriculum-image {
+    transform: rotateY(0deg);
+}
+
+.few-messages{
+    margin-left: 150px;
+    text-align: center;
+}
+
+.few-messages i{
+    font-size: 90px;
+}
+
+.contact-details {
+    text-align: center;
+    margin-left: 150px;
+}
+.contact-details i{
+    font-size: 20px;
+    margin-right: 20px;
+}
+.contact-link:hover {
+    color: #dc3545 !important;
+}
+.contact-link:hover i,
+.contact-link:hover h4 {
+    color: #dc3545 !important;
+}
+
+
+.text-bold {
+    font-weight: bold;
+}
