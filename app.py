@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, jsonify
-import os
-import re
+import requests
 
 app = Flask(__name__)
 
-EXTRACTED_TEXT_FOLDER = 'extracted_text'
+GEMINI_API_KEY = 'AIzaSyD382Lp17CtEnJzZUlMix5sczcb6waqVcI'
+GEMINI_API_URL = 'https://api.gemini.com/v1/query'  # Replace with the correct Gemini API endpoint
 
 @app.route('/')
 def index():
@@ -16,26 +16,35 @@ def get_relevant_text():
     if not user_query or len(user_query) > 100:  # Validate query
         return jsonify({'status': 'error', 'text': "Please enter a valid and concise query."})
 
-    relevant_text = []
+    headers = {
+        'Authorization': f'Bearer {GEMINI_API_KEY}',  # Add your Gemini API key in the Authorization header
+    }
 
-    if not os.path.exists(EXTRACTED_TEXT_FOLDER):
-        return jsonify({'status': 'error', 'text': "No extracted text files available for search."})
+    data = {
+        'query': user_query,  # The query sent to the Gemini API
+    }
 
-    for filename in os.listdir(EXTRACTED_TEXT_FOLDER):
-        if filename.endswith('.txt'):
-            with open(os.path.join(EXTRACTED_TEXT_FOLDER, filename), 'r', encoding='utf-8') as file:
-                text = file.read().lower()
-                match = re.search(r'\b' + re.escape(user_query) + r'\b', text)
-                if match:
-                    start_idx = match.start()
-                    end_idx = match.end()
-                    context = text[max(0, start_idx - 50):min(len(text), end_idx + 150)]
-                    relevant_text.append(context.strip())
+    # Make POST request to Gemini API
+    response = requests.post(GEMINI_API_URL, headers=headers, json=data)
 
-    if relevant_text:
-        return jsonify({'status': 'success', 'results': relevant_text})
+    # Debugging: Print status code and response content
+    print(f"API Response Status Code: {response.status_code}")
+    print(f"API Response Content: {response.text}")
+
+    if response.status_code == 200:
+        try:
+            response_data = response.json()
+            if 'text' in response_data:
+                bot_response = response_data['text']
+                return jsonify({'status': 'success', 'results': [bot_response]})
+            else:
+                return jsonify({'status': 'success', 'text': "Sorry, I couldn't find anything related to your query."})
+        except Exception as e:
+            print(f"Error parsing JSON: {e}")
+            return jsonify({'status': 'error', 'text': "Error parsing the response from Gemini API."})
     else:
-        return jsonify({'status': 'success', 'text': "Sorry, I couldn't find anything related to your query."})
+        return jsonify({'status': 'error', 'text': f"Error contacting Gemini API: {response.text}"})
+
 
 if __name__ == '__main__':
     app.run(debug=True)

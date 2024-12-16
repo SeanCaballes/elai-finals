@@ -209,6 +209,61 @@ h1, h2, h3, .navbar, .chatbot-header {
     text-indent: 50px;
 }
 
+.skills {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+
+}
+
+.skills-items {
+    width: 50%;
+    border: 1px solid #212529;
+    padding: 25px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.skills-items img{
+    width: auto;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.projects-items {
+    padding: 50px;
+    width: 50%;
+}
+
+.projects-items-mobile {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    padding: 25px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.roadguard {
+    width: 400px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 100px;
+}
+
+.mobile {
+    height: 400px;
+    width: auto;
+    border-radius: 25px;
+}
+
+.web {
+    width: 400px;
+    height: auto;
+    border: 1px solid #adb5bd; 
+}
 
 .inside-second-content{
     margin-top: 50px;

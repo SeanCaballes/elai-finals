@@ -1,27 +1,35 @@
 $(document).ready(function() {
+    // Toggle the chatbot popup when clicking on the button
     $('#chatbot-toggle').click(function() {
         $('#chatbot-popup').toggle();
     });
 
+    // Close the chatbot popup when clicking on the close button
     $('#close-chat').click(function() {
         $('#chatbot-popup').hide();
     });
 
+    // Handle sending user messages to the backend
     $('#send-message').click(function() {
         var userMessage = $('#user-message').val();
         if (userMessage.trim() !== '') {
+            // Display user message
             $('#chatbot-messages').append('<div class="user-message"><strong>You:</strong> ' + userMessage + '</div>');
             $('#user-message').val('');
 
-            // Send user message to the backend for processing
+            // Send user message to the Flask backend (Gemini API)
             $.ajax({
-                url: '/get_relevant_text',  // New endpoint to handle query
+                url: '/get_relevant_text',  // Flask route
                 method: 'POST',
-                data: { query: userMessage },
+                data: { query: userMessage },  // Send the user message to the backend
                 success: function(response) {
-                    var botResponse = response.text || "I couldn't find any relevant information."; // Default message if no relevant info is found
+                    if (response.status === 'success' && response.results) {
+                        var botResponse = response.results.join('<br/>');
+                    } else {
+                        var botResponse = response.text || "I couldn't find anything related to your query.";
+                    }
 
-                    // Display the bot's response
+                    // Display bot response
                     $('#chatbot-messages').append('<div class="bot-message"><strong>Bot:</strong> ' + botResponse + '</div>');
                     $('#chatbot-messages').scrollTop($('#chatbot-messages')[0].scrollHeight);
                 },
