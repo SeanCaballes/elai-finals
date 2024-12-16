@@ -10,26 +10,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar box-shadow">
-        <h1 class="navgoods h3 display-6 text-dark"><a class="text-decoration-none text-white text-bold" href="templates/index.html">WELCOME</a></h1>
+    <div class="navbar box-shadow d-inline align-items-center justify-content-center px-4">
+        <ul class="nav justify-content-end mx-auto">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#about-me">About Me</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#third">CV/Resume</a>
+            </li>
+        </ul>
+    </div>
+    
+    <img class="standing-photo" src="/static/free.jfif">
+
+    <div class="intro">
+        <h1 class="h1-intro display-1 text-white text-bold">Sean Caballes</h1>
     </div>
     <div class="main-content">
-        <div class="intro">
-            <h1 class="h1-intro display-3 text-white">Hi, my name is Sean Q. Caballes</h1>
+        
+    </div>    
+
+    <div id="about-me" class="second-content">
+        <div class="inside-second-content-one">
+            <img class="background-image" src="/static/background.png">
+            <h1 class="display-1 text-black text-bold">About Me</h1>
+            <p class="about-me text-black">Aspiring IT professional with a passion for front-end
+                development, creating responsive user interfaces,
+                and delivering seamless user experiences. Focused
+                on improving skills in HTML, CSS, JavaScript, and
+                React, while learning new technologies. Excited to
+                work on innovative web projects and grow in the
+                tech industry.
+            </p>
         </div>
-        <img class="standing-photo" src="/static/me.png">
+        
+        <div class="inside-second-content">
+            <div class="education-container text-center">
+                <h2 class="display-2 m-5 text-black">Education</h2>
+                <div class="row">
+                    <div class="col">
+                        <div class="education-item">
+                            <img src="/static/ges.png" class="education-img">
+                            <h5 class="display-5 mt-3 text-bold">Primary</h5>
+                            <p>Guadalupe Elementary School</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="education-item">
+                            <img src="/static/ans.jpg" class="education-img">
+                            <h5 class="display-5 mt-3 text-bold">Secondary</h5>
+                            <p>Abellana National School</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="education-item">
+                            <img src="/static/aics.jpg" class="education-img">
+                            <h5 class="display-5 mt-3 text-bold">Upper Secondary</h5>
+                            <p>Asian Institute of Computer Studies</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="education-item">
+                            <img src="/static/uc.jpg" class="education-img">
+                            <h5 class="display-5 mt-3 text-bold">College</h5>
+                            <p>University of Cebu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
     </div>
-    <div class="second-content">
-        <p class="about-me text-white">Aspiring IT professional with a passion for front-end
-            development, creating responsive user interfaces,
-            and delivering seamless user experiences. Focused
-            on improving skills in HTML, CSS, JavaScript, and
-            React, while learning new technologies. Excited to
-            work on innovative web projects and grow in the
-            tech industry.
-        </p>
-    </div>
-    <div class="text-center text-white display-3 p-5 mb-5">
+
+    <div id="third" class="third text-center text-white display-3 p-5">
         <h3>My Curriculum Vitae/Resume</h3>
     </div>
     <div class="third-content d-flex">
@@ -39,8 +91,8 @@
                 <img class="cv curriculum-image" src="/static/CurriculumVitae-1.png" alt="Curriculum Vitae">
             </div>
         </div>
-        <div class="few-messages">
-            <h3 class="text-danger">Download or Print</h3>
+        <div id="few-messages" class="few-messages">
+            <h3 class="text-gray">Download or Print</h3>
             <a href="/static/CurriculumVitae.pdf" download class="btn btn-none">
                 <i class="bi bi-file-arrow-down-fill text-dark contact-link"></i>
             </a>
@@ -49,7 +101,7 @@
             </button>
         </div>
         <div class="contact-details text-end">
-            <h3 class="text-danger">Contact Details</h3>
+            <h3 class="text-gray">Contact Details</h3>
             <div>
                 <a class="d-flex text-primary text-decoration-none contact-link" href="https://www.facebook.com/profile.php?id=61569553080204">
                     <i class="bi bi-facebook"></i>
@@ -57,7 +109,7 @@
                 </a>  
             </div>
             <div>
-                <a class="d-flex text-white text-decoration-none contact-link" href="https://github.com/SeanCaballes">
+                <a class="d-flex text-dark text-decoration-none contact-link" href="https://github.com/SeanCaballes">
                     <i class="bi bi-github"></i>
                     <h4>SeanCaballes</h4>
                 </a>   
@@ -65,9 +117,12 @@
         </div>
     </div>
 
+    <div class="last">
+        <p>nothing to see here.</p>
+    </div>
     <div id="chatbot-icon" class="chatbot-icon">
-        <button id="chatbot-toggle" class="btn btn-danger">
-            <i class="bi bi-robot text-dark"></i>
+        <button id="chatbot-toggle" class="btn btn-dark">
+            <i class="bi bi-robot text-gray"></i>
         </button>
     </div>
 
@@ -80,7 +135,7 @@
         </div>
         <div class="chatbot-footer">
             <input type="text" id="user-message" placeholder="Type your message here...">
-            <button id="send-message" class="btn btn-danger">Send</button>
+            <button id="send-message" class="btn btn-dark">Send</button>
         </div>
     </div>
 
